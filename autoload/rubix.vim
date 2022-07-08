@@ -1,23 +1,3 @@
-function! rubix#only() abort
-  " figure out which buffers are visible in any tab
-  let l:visible = {}
-  for l:t in range(1, tabpagenr('$'))
-    for l:b in tabpagebuflist(l:t)
-      let l:visible[l:b] = 1
-    endfor
-  endfor
-
-  " close any buffer that are loaded and not visible
-  let l:tally = 0
-  for l:b in range(1, bufnr('$'))
-    if bufexists(l:b) && !has_key(l:visible, l:b) && !getbufvar(l:b, '&mod')
-      let l:tally += 1
-      exe 'bw ' . l:b
-    endif
-  endfor
-  echon 'Deleted ' . l:tally . ' buffers'
-endfunction
-
 function! rubix#maximize_toggle() abort
   let l:curpos = getcurpos()
   if tabpagenr() == 1
