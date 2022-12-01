@@ -48,7 +48,7 @@ func TestFoo(t *testing.T) {
 	
 }]]
 
-function go_template_create()
+local function go_template_create()
 	local olddir = vim.fn.getcwd()
 	local wd = vim.fn.expand("%:p:h")
 	vim.cmd("lcd " .. vim.fn.fnameescape(wd))
