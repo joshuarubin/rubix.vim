@@ -107,7 +107,7 @@ local function lsp_format(opts)
 	vim.o.undolevels = vim.o.undolevels -- this, strangely, starts a new undo block for the next change
 
 	vim.lsp.buf.format({
-		timeout = 5000,
+		timeout_ms = 5000,
 		bufnr = opts.buf,
 	})
 end
