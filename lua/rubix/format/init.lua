@@ -80,7 +80,7 @@ local function organize_imports(bufnr, wait_ms)
 		return
 	end
 
-	vim.o.undolevels = vim.o.undolevels -- this, strangely, starts a new undo block for the next change
+	vim.o.undolevels = math.floor(vim.o.undolevels) -- this, strangely, starts a new undo block for the next change
 
 	ctx.sync = true
 
@@ -104,7 +104,7 @@ local function lsp_format(opts)
 
 	organize_imports(opts.buf, 5000)
 
-	vim.o.undolevels = vim.o.undolevels -- this, strangely, starts a new undo block for the next change
+	vim.o.undolevels = math.floor(vim.o.undolevels) -- this, strangely, starts a new undo block for the next change
 
 	vim.lsp.buf.format({
 		timeout_ms = 5000,
