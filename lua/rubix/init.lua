@@ -12,4 +12,6 @@ M.setup = function()
 	only.setup()
 end
 
+M.cmp = require("rubix/cmp")
+
 return M
