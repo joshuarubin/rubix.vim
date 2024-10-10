@@ -12,6 +12,8 @@ M.setup = function()
 	only.setup()
 end
 
-M.cmp = require("rubix/cmp")
+if not vim.g.vscode then
+	M.cmp = require("rubix/cmp")
+end
 
 return M
