@@ -1,13 +1,3 @@
-function! rubix#maximize_toggle() abort
-  let l:curpos = getcurpos()
-  if tabpagenr() == 1
-    tabedit %
-  else
-    tabclose
-  endif
-  call setpos('.', l:curpos)
-endfunction
-
 "http://vim.wikia.com/wiki/Deleting_a_buffer_without_closing_the_window
 "
 "here is a more exotic version of my original Kwbd script
