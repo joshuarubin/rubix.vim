@@ -15,10 +15,10 @@ local function only(opts)
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 		if
 			visible[buf] == nil
-			and not vim.api.nvim_buf_get_option(buf, "modified")
-			and (force or vim.api.nvim_buf_get_option(buf, "buftype") ~= "terminal")
+			and not vim.api.nvim_get_option_value("modified", { buf = buf })
+			and (force or vim.api.nvim_get_option_value("buftype", { buf = buf }) ~= "terminal")
 		then
-			if vim.api.nvim_buf_get_option(buf, "buftype") ~= "nofile" then
+			if vim.api.nvim_get_option_value("buftype", { buf = buf }) ~= "nofile" then
 				tally = tally + 1
 			end
 			vim.api.nvim_buf_delete(buf, {
